@@ -4,12 +4,14 @@ on:
   push:
     branches: [ master ]
     paths:
+      - ".github/workflows/Shimakaze.Models.Csf.yml"
       - "src/Shimakaze.Models.Csf/**"
       - "test/Shimakaze.Models.Csf.Test/**"
       
   pull_request:
     branches: [ master ]
     paths:
+      - ".github/workflows/Shimakaze.Models.Csf.yml"
       - "src/Shimakaze.Models.Csf/**"
       - "test/Shimakaze.Models.Csf.Test/**"
       
