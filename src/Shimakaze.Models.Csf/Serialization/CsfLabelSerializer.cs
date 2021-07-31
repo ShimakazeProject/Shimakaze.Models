@@ -10,7 +10,7 @@ using Shimakaze.Models.Csf.InternalUtils;
 
 namespace Shimakaze.Models.Csf.Serialization
 {
-    public class CsfLabelSerializer : ICsfSerializer<CsfLabel>, IAsyncCsfSerializer<CsfLabel>
+    public sealed class CsfLabelSerializer : ICsfSerializer<CsfLabel>, IAsyncCsfSerializer<CsfLabel>
     {
         private CsfValueSerializer? _valueSerializer = null;
         private CsfValueSerializer CsfValueSerializer => _valueSerializer ??= new();

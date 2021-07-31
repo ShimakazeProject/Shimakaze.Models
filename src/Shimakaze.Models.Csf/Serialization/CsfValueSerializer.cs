@@ -8,7 +8,7 @@ using Shimakaze.Models.Csf.InternalUtils;
 
 namespace Shimakaze.Models.Csf.Serialization
 {
-    public class CsfValueSerializer : ICsfSerializer<CsfValue>, IAsyncCsfSerializer<CsfValue>
+    public sealed class CsfValueSerializer : ICsfSerializer<CsfValue>, IAsyncCsfSerializer<CsfValue>
     {
         public CsfValue Deserialize(byte[] raw)
         {
