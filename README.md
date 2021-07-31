@@ -2,7 +2,7 @@
 
 This Repo is file models about CNC Files
 
-## Shimakaze.Models.Csf [![Build and Test Shimakaze.Models.Csf](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/dotnet.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/dotnet.yml)
+## Shimakaze.Models.Csf [![Build and Test Shimakaze.Models.Csf](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml)
 
 A simple of C&C CSF File Model.
 
