@@ -12,7 +12,7 @@ on:
     paths:
       - "src/Shimakaze.Models.Csf/**"
       - "test/Shimakaze.Models.Csf.Test/**"
-  
+      
 jobs:
   csf-build:
     name: Build Shimakaze.Models.Csf
@@ -24,7 +24,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 5.0.x
         
     - name: Restore dependencies
       run: dotnet restore ./src/Shimakaze.Models.Csf/
@@ -50,7 +50,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 5.0.x
         
     - name: Test
       run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
@@ -66,7 +66,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 5.0.x
         
     - name: Test
       run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
