@@ -26,7 +26,7 @@ Sample:
     CsfStruct csf;
 
     CsfStructSerializer serializer = new();
-    byte[] fileData = serializer.Serialize(fileData);
+    byte[] fileData = serializer.Serialize(csf);
     ```
 - Asynchronization Code:
     ```cs
@@ -47,4 +47,47 @@ Sample:
 
     CsfStructSerializer serializer = new();
     await serializer.SerializeAsync(csf, fileStream);
+    ```
+
+## Shimakaze.Models.Ini [![Build and Test Shimakaze.Models.Ini](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml)
+
+A simple of C&C Ini File Model.
+
+You can be easy to use this to Serialize/Deserialize Ini file.
+
+Sample:
+
+- Synchronization Code:
+    ```cs
+    // using
+    using Shimakaze.Models.Ini;
+    using Shimakaze.Models.Ini.Serialization;
+
+    // Deserialize
+    TextReader tr;
+
+    IniDocument Ini = IniSerializer.Deserialize(tr);
+
+    // Serialize
+    IniDocument Ini;
+    TextWriter tw;
+
+    IniSerializer.Serialize(Ini, tw);
+    ```
+- Asynchronization Code:
+    ```cs
+    // using
+    using Shimakaze.Models.Ini;
+    using Shimakaze.Models.Ini.Serialization;
+
+    // Deserialize
+    TextReader tr;
+
+    IniDocument Ini = await IniSerializer.DeserializeAsync(tr);
+
+    // Serialize
+    IniDocument Ini;
+    TextWriter tw;
+
+    await IniSerializer.SerializeAsync(Ini, tw);
     ```

@@ -1,0 +1,74 @@
+name: Build and Test Shimakaze.Models.Ini
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - ".github/workflows/Shimakaze.Models.Ini.yml"
+      - "src/Shimakaze.Models.Ini/**"
+      - "test/Shimakaze.Models.Ini.Test/**"
+      
+  pull_request:
+    branches: [ master ]
+    paths:
+      - ".github/workflows/Shimakaze.Models.Ini.yml"
+      - "src/Shimakaze.Models.Ini/**"
+      - "test/Shimakaze.Models.Ini.Test/**"
+      
+jobs:
+  ini-build:
+    name: Build Shimakaze.Models.Ini
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore ./src/Shimakaze.Models.Ini/
+      
+    - name: Build Shimakaze.Models.Ini
+      run: dotnet build --no-restore ./src/Shimakaze.Models.Ini/ -c Release
+      
+    - uses: actions/upload-artifact@v2
+      name: Upload Shimakaze.Models.Ini to Artifacts
+      with:
+        name: Shimakaze.Models.Ini
+        path: ./src/Shimakaze.Models.Ini/bin/Release
+      
+      
+  # ini-test-linux:
+  #   name: Test Shimakaze.Models.Ini on GNU/Linux Operating System
+  #   needs: ini-build
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - uses: actions/checkout@v2
+    
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v1
+  #     with:
+  #       dotnet-version: 5.0.x
+        
+  #   - name: Test
+  #     run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Ini.Test/ -c Release
+      
+  # ini-test-windows:
+  #   name: Test Shimakaze.Models.Ini on Windows Operating System
+  #   needs: ini-build
+  #   runs-on: windows-latest
+
+  #   steps:
+  #   - uses: actions/checkout@v2
+    
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v1
+  #     with:
+  #       dotnet-version: 5.0.x
+        
+  #   - name: Test
+  #     run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Ini.Test/ -c Release
