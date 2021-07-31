@@ -1,51 +1,72 @@
-name: .NET
+name: Build and Test Shimakaze.Models.Csf
 
 on:
   push:
     branches: [ master ]
+    paths:
+      - "src/Shimakaze.Models.Csf/**"
+      - "test/Shimakaze.Models.Csf.Test/**"
+      
   pull_request:
     branches: [ master ]
-
+    paths:
+      - "src/Shimakaze.Models.Csf/**"
+      - "test/Shimakaze.Models.Csf.Test/**"
+  
 jobs:
-  build:
-
+  csf-build:
+    name: Build Shimakaze.Models.Csf
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
+        
     - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+      run: dotnet restore ./src/Shimakaze.Models.Csf/
+      
+    - name: Build Shimakaze.Models.Csf
+      run: dotnet build --no-restore ./src/Shimakaze.Models.Csf/
+      
+    - uses: actions/upload-artifact@v2
+      name: Upload Shimakaze.Models.Csf to Artifacts
+      with:
+        name: Shimakaze.Models.Csf
+        path: ./src/Shimakaze.Models.Csf/bin/Release
+      
       
   csf-test-linux:
-  
+    name: Test Shimakaze.Models.Csf on GNU/Linux Operating System
+    needs: csf-build
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
         
     - name: Test
-      run: dotnet test --no-build -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
+      run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
       
   csf-test-windows:
-
+    name: Test Shimakaze.Models.Csf on Windows Operating System
+    needs: csf-build
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
         
     - name: Test
-      run: dotnet test --no-build -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
+      run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/
