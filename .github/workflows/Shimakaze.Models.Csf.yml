@@ -27,7 +27,7 @@ jobs:
         dotnet-version: 5.0.x
         
     - name: Restore dependencies
-      run: dotnet restore ./src/Shimakaze.Models.Csf/ -c Release
+      run: dotnet restore ./src/Shimakaze.Models.Csf/
       
     - name: Build Shimakaze.Models.Csf
       run: dotnet build --no-restore ./src/Shimakaze.Models.Csf/ -c Release
