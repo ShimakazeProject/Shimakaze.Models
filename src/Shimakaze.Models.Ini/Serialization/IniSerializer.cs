@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace Shimakaze.Models.Ini.Serialization
 {
-    public class IniSerializer
+    public static class IniSerializer
     {
         public static IniDocument Deserialize(TextReader tr)
         {
             IniDocument document = new();
-            IniSection currentSection = document;
+            IniSection currentSection = document.Default;
 
             while (tr.Peek() > 0)
             {
@@ -20,20 +20,19 @@ namespace Shimakaze.Models.Ini.Serialization
                 if (line.StartsWith("["))
                 {
                     var section = line.Split('[').Last().Split(']').First();
-                    currentSection = new(section);
-                    document.Add(section, currentSection);
+                    currentSection = document.Add(section);
                 }
                 else
                 {
                     var raw = line.Split('=');
-                    currentSection.Add(raw.First(), raw.Last());
+                    currentSection.Add(raw.First().Trim(), raw.Last().Trim());
                 }
             }
             return document;
         }
         public static void Serialize(IniDocument ini, TextWriter tw)
         {
-            foreach (var line in ini as IniSection)
+            foreach (var line in ini.Default)
                 tw.WriteLine(line.Key + "=" + line.Value);
 
             tw.WriteLine();
@@ -50,7 +49,7 @@ namespace Shimakaze.Models.Ini.Serialization
         public static async Task<IniDocument> DeserializeAsync(TextReader tr)
         {
             IniDocument document = new();
-            IniSection currentSection = document;
+            IniSection currentSection = document.Default;
 
             while (tr.Peek() > 0)
             {
@@ -61,8 +60,7 @@ namespace Shimakaze.Models.Ini.Serialization
                 if (line.StartsWith("["))
                 {
                     var section = line.Split('[').Last().Split(']').First();
-                    currentSection = new(section);
-                    document.Add(section, currentSection);
+                    currentSection = document.Add(section);
                 }
                 else
                 {
@@ -74,7 +72,7 @@ namespace Shimakaze.Models.Ini.Serialization
         }
         public static async Task SerializeAsync(IniDocument ini, TextWriter tw)
         {
-            foreach (var line in ini as IniSection)
+            foreach (var line in ini.Default)
                 await tw.WriteLineAsync(line.Key + "=" + line.Value).ConfigureAwait(false);
 
             await tw.WriteLineAsync().ConfigureAwait(false);
