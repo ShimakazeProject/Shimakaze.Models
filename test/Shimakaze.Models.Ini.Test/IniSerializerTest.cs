@@ -26,16 +26,16 @@ key2=value2
             result["Section1"]["key3"] = "value3";
             result["Section1", "key4"] = "value4";
 
-            if (!(result["Section1"]["key1"] == result["Section1", "key1"] == d.Section1.key1 == "value1"))
+            if (result["Section1"]["key1"] != "value1" || result["Section1", "key1"] != "value1" || d.Section1.key1 != "value1")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key2"] == result["Section1", "key2"] == d.Section1.key2 == "value2"))
+            if (result["Section1"]["key2"] != "value2" || result["Section1", "key2"] != "value2" || d.Section1.key2 != "value2")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key3"] == result["Section1", "key3"] == d.Section1.key3 == "value3"))
+            if (result["Section1"]["key3"] != "value3" || result["Section1", "key3"] != "value3" || d.Section1.key3 != "value3")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key4"] == result["Section1", "key4"] == d.Section1.key4 == "value4"))
+            if (result["Section1"]["key4"] != "value4" || result["Section1", "key4"] != "value4" || d.Section1.key4 != "value4")
                 throw new Exception("DeserializeTest failed");
         }
         [TestMethod]
@@ -59,16 +59,16 @@ key2=value2
             result["Section1"]["key3"] = "value3";
             result["Section1", "key4"] = "value4";
 
-            if (!(result["Section1"]["key1"] == result["Section1", "key1"] == d.Section1.key1 == "value1"))
+            if (result["Section1"]["key1"] != "value1" || result["Section1", "key1"] != "value1" || d.Section1.key1 != "value1")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key2"] == result["Section1", "key2"] == d.Section1.key2 == "value2"))
+            if (result["Section1"]["key2"] != "value2" || result["Section1", "key2"] != "value2" || d.Section1.key2 != "value2")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key3"] == result["Section1", "key3"] == d.Section1.key3 == "value3"))
+            if (result["Section1"]["key3"] != "value3" || result["Section1", "key3"] != "value3" || d.Section1.key3 != "value3")
                 throw new Exception("DeserializeTest failed");
 
-            if (!(result["Section1"]["key4"] == result["Section1", "key4"] == d.Section1.key4 == "value4"))
+            if (result["Section1"]["key4"] != "value4" || result["Section1", "key4"] != "value4" || d.Section1.key4 != "value4")
                 throw new Exception("DeserializeTest failed");
         }
         [TestMethod]
