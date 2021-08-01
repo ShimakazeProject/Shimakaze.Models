@@ -15,8 +15,8 @@ This repo includes the following
 
 ## `Shimakaze.Models.Csf`
 
-A simple of C&C CSF File Model.
-
+A simple of C&C CSF File Model.  
+About Read and Write you need to see [`Shimakaze.Tools`](//github.com/ShimakazeProject/Shimakaze.Tools)
 
 ## `Shimakaze.Models.Ini`
 
