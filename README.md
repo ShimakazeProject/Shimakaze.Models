@@ -5,11 +5,15 @@ This Repo is file models about **CNC Files**
 This repo includes the following
 
 - [`Shimakaze.Models`](#shimakazemodels)
-  - [`Shimakaze.Models.Csf` ![Build and Test Shimakaze.Models.Csf](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml)](#shimakazemodelscsf-)
-  - [`Shimakaze.Models.Ini` ![Build and Test Shimakaze.Models.Ini](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml)](#shimakazemodelsini-)
+  - [`Shimakaze.Models.Csf`](#shimakazemodelscsf)
+  - [`Shimakaze.Models.Ini`](#shimakazemodelsini)
 
+|| Build Status |
+|:-:|:-:|
+`Shimakaze.Models.Csf`|[![Build and Test Shimakaze.Models.Csf](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml)
+`Shimakaze.Models.Ini`|[![Build and Test Shimakaze.Models.Ini](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml)
 
-## `Shimakaze.Models.Csf` [![Build and Test Shimakaze.Models.Csf](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Csf.yml)
+## `Shimakaze.Models.Csf`
 
 A simple of C&C CSF File Model.
 
@@ -57,7 +61,7 @@ Sample:
     await serializer.SerializeAsync(csf, fileStream);
     ```
 
-## `Shimakaze.Models.Ini` [![Build and Test Shimakaze.Models.Ini](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml/badge.svg)](https://github.com/ShimakazeProject/Shimakaze.Models/actions/workflows/Shimakaze.Models.Ini.yml)
+## `Shimakaze.Models.Ini`
 
 A simple of C&C `Ini` File Model.
 
