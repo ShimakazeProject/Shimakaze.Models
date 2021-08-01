@@ -17,49 +17,6 @@ This repo includes the following
 
 A simple of C&C CSF File Model.
 
-You can be easy to use this to Serialize/Deserialize CSF file.  
-Tips: this lib is not support edit. **It is read only**.
-
-Sample:
-
-- Synchronization Code:
-    ```cs
-    // using
-    using Shimakaze.Models.Csf;
-    using Shimakaze.Models.Csf.Serialization;
-
-    // Deserialize
-    byte[] fileData;
-
-    CsfStructSerializer serializer = new();
-    CsfStruct csf = serializer.Deserialize(fileData);
-
-    // Serialize
-    CsfStruct csf;
-
-    CsfStructSerializer serializer = new();
-    byte[] fileData = serializer.Serialize(csf);
-    ```
-- Asynchronization Code:
-    ```cs
-    // using
-    using Shimakaze.Models.Csf;
-    using Shimakaze.Models.Csf.Serialization;
-
-    // Deserialize
-    Stream fileStream;
-    byte[] buffer;
-
-    CsfStructSerializer serializer = new();
-    CsfStruct csf = await serializer.DeserializeAsync(fileStream, buffer);
-
-    // Serialize
-    CsfStruct csf;
-    Stream fileStream;
-
-    CsfStructSerializer serializer = new();
-    await serializer.SerializeAsync(csf, fileStream);
-    ```
 
 ## `Shimakaze.Models.Ini`
 

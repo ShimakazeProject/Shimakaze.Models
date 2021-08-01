@@ -6,14 +6,12 @@ on:
     paths:
       - ".github/workflows/Shimakaze.Models.Csf.yml"
       - "src/Shimakaze.Models.Csf/**"
-      - "test/Shimakaze.Models.Csf.Test/**"
       
   pull_request:
     branches: [ master ]
     paths:
       - ".github/workflows/Shimakaze.Models.Csf.yml"
       - "src/Shimakaze.Models.Csf/**"
-      - "test/Shimakaze.Models.Csf.Test/**"
       
 jobs:
   csf-build:
@@ -39,36 +37,3 @@ jobs:
       with:
         name: Shimakaze.Models.Csf
         path: ./src/Shimakaze.Models.Csf/bin/Release
-      
-      
-  csf-test-linux:
-    name: Test Shimakaze.Models.Csf on GNU/Linux Operating System
-    needs: csf-build
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-        
-    - name: Test
-      run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/ -c Release
-      
-  csf-test-windows:
-    name: Test Shimakaze.Models.Csf on Windows Operating System
-    needs: csf-build
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-        
-    - name: Test
-      run: dotnet test -l "console;verbosity=detailed" ./test/Shimakaze.Models.Csf.Test/ -c Release
