@@ -1,0 +1,39 @@
+name: Build and Test Shimakaze.Models.Mix
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - ".github/workflows/Shimakaze.Models.Mix.yml"
+      - "src/Shimakaze.Models.Mix/**"
+      
+  pull_request:
+    branches: [ master ]
+    paths:
+      - ".github/workflows/Shimakaze.Models.Mix.yml"
+      - "src/Shimakaze.Models.Mix/**"
+      
+jobs:
+  csf-build:
+    name: Build Shimakaze.Models.Mix
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore ./src/Shimakaze.Models.Mix/
+      
+    - name: Build Shimakaze.Models.Mix
+      run: dotnet build --no-restore ./src/Shimakaze.Models.Mix/ -c Release
+      
+    - uses: actions/upload-artifact@v2
+      name: Upload Shimakaze.Models.Mix to Artifacts
+      with:
+        name: Shimakaze.Models.Mix
+        path: ./src/Shimakaze.Models.Mix/bin/Release
